@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <p>© 2025 TrackMyStack</p>
+      <p>&copy; 2025 TrackMyStack</p>
     </footer>
   );
 }
