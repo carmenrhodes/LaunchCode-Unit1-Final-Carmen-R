@@ -1,12 +1,30 @@
-import './home.css';
+import QuickAdd from "../components/QuickAdd";
+import "./Home.css";
+import SpotPrices from "../components/SpotPrices";
 
-function Home() {
-    return (
-        <div className="home-container">
-            <h2>Welcome to TrackMyStack</h2>
-            <p>This is your dashboard. Here you'll see spot prices and inventory info.</p>
+function Home({ stack, onAdd }) {
+  const totalWeight = stack.reduce((sum, i) => sum + i.weight, 0);
+  const totalValue  = stack.reduce((sum, i) => sum + i.price , 0);
+
+  return (
+    <div className="dashboard">
+      <h2>Dashboard</h2>
+
+      <div className="summary-cards">
+        <div className="card">
+          <h3>Total Weight</h3>
+          <p>{totalWeight.toFixed(2)} oz</p>
         </div>
-    );
+        <div className="card">
+          <h3>Total Value</h3>
+          <p>${totalValue.toFixed(2)}</p>
+        </div>
+      </div>
+
+      <QuickAdd onAdd={onAdd} />
+      <SpotPrices />
+    </div>
+  );
 }
 
 export default Home;

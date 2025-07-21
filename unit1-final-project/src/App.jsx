@@ -13,10 +13,28 @@ import About from './pages/About';
 function App() {
   const [stack, setStack] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [editingItem, setEditingItem] = useState(null);
 
   const handleAddItem = (newItem) => {
     setStack([...stack, newItem]);
   };
+
+  const handleDeleteItem = (id) => {
+    const updatedStack = stack.filter((item) => item.id !== id);
+    setStack(updatedStack);
+  }
+
+  const handleEditItem = (item) => {
+  setEditingItem(item);
+};
+
+const handleUpdateItem = (updatedItem) => {
+  const updatedStack = stack.map((item) =>
+    item.id === updatedItem.id ? updatedItem : item
+  );
+  setStack(updatedStack);
+  setEditingItem(null);
+};
 
   return (
     <div className="layout">
@@ -27,9 +45,15 @@ function App() {
 
         <main className="content">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home stack={stack} onAdd={handleAddItem} />} />
             <Route path="/add" element={<AddItem onAdd={handleAddItem} />} />
-            <Route path="/stack" element={<StackerTracker stack={stack} />} />
+            <Route path="/stack" element={<StackerTracker 
+              stack={stack} 
+              onDelete={handleDeleteItem} 
+              onEdit={handleEditItem}
+              editingItem={editingItem}
+              setEditingItem={setEditingItem}
+              onUpdate={handleUpdateItem} />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </main>

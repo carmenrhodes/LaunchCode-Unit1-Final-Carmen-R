@@ -8,21 +8,20 @@
 }
 
 .recent-cards {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .card {
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  border-left: 6px solid #2f5061;
-  border-radius: 6px;
+  background-color: #f5f5f5;
   padding: 1rem;
-  flex: 1 1 calc(33.33% - 1rem);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-  min-width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .stack-table {
@@ -46,12 +45,38 @@
   background-color: #f2f2f2;
 }
 
+.delete-button {
+  background-color: #b8860b;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete-button:hover{
+  background-color: #8b6508;
+}
+
+.edit-button {
+  background-color: #2f5061;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #3e6377;
+}
+
+
 @media (max-width: 768px) {
   .recent-cards {
-    flex-direction: column;
-  }
-
-  .card {
-    flex: 1 1 100%;
+    grid-template-columns: 1fr;
   }
 }
