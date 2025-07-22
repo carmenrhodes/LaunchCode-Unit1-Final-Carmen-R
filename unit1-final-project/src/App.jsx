@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
@@ -8,10 +9,20 @@ import StackerTracker from './pages/StackerTracker';
 import './index.css';
 import Home from './pages/Home';
 import About from './pages/About';
+import FindCoinShops from './pages/FindCoinShops';
+import SpotTracker from './pages/SpotTracker';
 
 
 function App() {
-  const [stack, setStack] = useState([]);
+  const [stack, setStack] = useState(() => {
+  const savedStack = localStorage.getItem("stack");
+  return savedStack ? JSON.parse(savedStack) : [];
+});
+
+useEffect(() => {
+  localStorage.setItem("stack", JSON.stringify(stack));
+}, [stack]);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
@@ -54,6 +65,8 @@ const handleUpdateItem = (updatedItem) => {
               editingItem={editingItem}
               setEditingItem={setEditingItem}
               onUpdate={handleUpdateItem} />} />
+            <Route path="/find-shops" element={<FindCoinShops />} />
+            <Route path="/spot-tracker" element={<SpotTracker />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </main>

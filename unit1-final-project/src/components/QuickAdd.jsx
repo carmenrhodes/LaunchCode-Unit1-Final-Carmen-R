@@ -15,7 +15,7 @@ function QuickAdd({ onAdd }) {
       metal,
       weight: Number(weight),
       price: Number(price),
-      date: new Date().toISOString().slice(0, 10),  // today
+      date: new Date().toISOString().slice(0, 10), 
     });
 
     setMetal("");
@@ -25,8 +25,9 @@ function QuickAdd({ onAdd }) {
 
   return (
     <form className="quick-add" onSubmit={handleSubmit}>
-      <h3>Quick Add</h3>
-
+      <h3>Quick Add</h3>
+    <br/>
+    <br/>
       <input
         type="text"
         placeholder="Metal"

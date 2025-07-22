@@ -1,9 +1,12 @@
+import './About.css';
+
 function About() {
     return (
-        <main>
+        <div className="about-page">
             <h2>About TrackMyStack</h2>
-            <p>Additional info about me here...</p>
-        </main>
+            <h3 className="tagline">Less chaos, more coins! 🪙✨</h3>
+            <p>TrackMyStack was built with one goal in mind: helping stackers stay organized without the stress. Whether you're just getting started or already knee-deep in coins and bars, this app keeps your precious metals inventory tidy, your totals clear, and your spot prices easy to track. No spreadsheets, no guesswork—just simple tools to help you stack smarter (and maybe have a little fun while you're at it).</p>
+        </div>
     );
 }
 

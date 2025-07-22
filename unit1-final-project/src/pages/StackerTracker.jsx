@@ -7,7 +7,10 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
     <div className="stacker-tracker">
       <h2>StackerTracker</h2>
 
-      {/* Top 3 Cards */}
+      {stack.length === 0 ? (
+      <p className="empty-message">Your stack is currently empty.</p>
+    ) : (
+      <>
       <div className="recent-cards">
         {recentItems.map((item) => (
           <div className="card" key={item.id}>
@@ -19,7 +22,6 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
         ))}
       </div>
 
-      {/* Table Display */}
       <table className="stack-table">
         <thead>
           <tr>
@@ -131,6 +133,8 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
           })}
         </tbody>
       </table>
+      </>
+    )}
     </div>
   );
 }
