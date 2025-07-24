@@ -1,5 +1,6 @@
 import './Header.css';
 import { Sling as Hamburger } from 'hamburger-react';
+import { FaLayerGroup } from "react-icons/fa";
 
 function Header({ menuOpen, setMenuOpen }) {
     return (
@@ -14,8 +15,10 @@ function Header({ menuOpen, setMenuOpen }) {
                     color="#fff"
                 />
             </div>
-            <h1>TrackMyStack</h1>
-        </header>
+            <h1>
+                TrackMyStack <FaLayerGroup />
+            </h1>
+        </header> 
     );
 }
 

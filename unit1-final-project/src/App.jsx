@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
-import AddItem from './components/AddItem';
+import AddItem from './pages/AddItem';
 import StackerTracker from './pages/StackerTracker';
 import './index.css';
 import Home from './pages/Home';
@@ -14,14 +14,11 @@ import SpotTracker from './pages/SpotTracker';
 
 
 function App() {
-  const [stack, setStack] = useState(() => {
-  const savedStack = localStorage.getItem("stack");
-  return savedStack ? JSON.parse(savedStack) : [];
-});
+  const [stack, setStack] = useState([]);
 
-useEffect(() => {
-  localStorage.setItem("stack", JSON.stringify(stack));
-}, [stack]);
+  useEffect(() => {
+    localStorage.setItem("stack", JSON.stringify(stack));
+  }, [stack]);
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
@@ -36,31 +33,31 @@ useEffect(() => {
   }
 
   const handleEditItem = (item) => {
-  setEditingItem(item);
-};
+    setEditingItem(item);
+  };
 
-const handleUpdateItem = (updatedItem) => {
-  const updatedStack = stack.map((item) =>
-    item.id === updatedItem.id ? updatedItem : item
-  );
-  setStack(updatedStack);
-  setEditingItem(null);
-};
+  const handleUpdateItem = (updatedItem) => {
+    const updatedStack = stack.map((item) =>
+      item.id === updatedItem.id ? updatedItem : item
+    );
+    setStack(updatedStack);
+    setEditingItem(null);
+  };
 
   return (
     <div className="layout">
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       <div className="content">
-        <Sidebar menuOpen={menuOpen} />
+        <Sidebar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
         <main className="content">
           <Routes>
             <Route path="/" element={<Home stack={stack} onAdd={handleAddItem} />} />
             <Route path="/add" element={<AddItem onAdd={handleAddItem} />} />
-            <Route path="/stack" element={<StackerTracker 
-              stack={stack} 
-              onDelete={handleDeleteItem} 
+            <Route path="/stack" element={<StackerTracker
+              stack={stack}
+              onDelete={handleDeleteItem}
               onEdit={handleEditItem}
               editingItem={editingItem}
               setEditingItem={setEditingItem}

@@ -1,8 +1,12 @@
 .stacker-tracker {
-  padding: 2rem;
-  max-width: 100vw;
-  overflow-x: hidden;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
+  min-width: 600px;
 }
 
 .stacker-tracker h2 {
@@ -25,6 +29,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.controls {
+  margin: 1rem 0;
+  text-align: right;
+}
+
+.controls select {
+  padding: 0.3rem;
+  font-size: 1rem;
 }
 
 .stack-table {
@@ -58,7 +72,7 @@
   font-weight: bold;
 }
 
-.delete-button:hover{
+.delete-button:hover {
   background-color: #8b6508;
 }
 
@@ -86,21 +100,31 @@
 
 @media (max-width: 768px) {
   .stacker-tracker {
-    padding: 1rem;
+    margin: 0;
+    padding: 0;
+    min-width: unset;
+    width: 100%;
   }
 
   .recent-cards {
     grid-template-columns: 1fr;
   }
 
-  .stack-table {
-    display: block;
+  .stack-table-wrapper {
     overflow-x: auto;
-    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .stacker-tracker{
+    max-width: 700px;
+    padding: 1.5rem;
   }
 
-  .stack-table th,
-  .stack-table td {
-    white-space: nowrap;
+  .recent-cards {
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    gap: 1rem;
   }
 }

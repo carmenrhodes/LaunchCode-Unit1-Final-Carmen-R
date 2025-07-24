@@ -1,25 +1,39 @@
-.spot-content {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background-color: #f5f5f5;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: left;
+.spot-tracker-page {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.spot-content h2 {
-  font-size: 2rem;
-  text-align: center;
-  color: #2f5061;
-  margin-bottom: 1rem;
+.spot-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
 }
 
-.spot-content p {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  text-align: center;
-  color: #333;
+.spot-table th,
+.spot-table td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.spot-table th {
+    background-color: #2f5061;
+    color: white;
+}
+
+.icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
 }
 
