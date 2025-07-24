@@ -1,10 +1,12 @@
 import './StackerTracker.css';
 import { useState } from 'react';
 
+// StackerTracker.jsx - Page to display, edit, and delete stack items
 function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, onUpdate }) {
   const recentItems = [...stack].slice(-3).reverse();
   const [sortBy, setSortBy] = useState('date');
 
+  // Sort logic
   const sortedStack = [...stack].sort((a, b) => {
     if (sortBy === 'date') {
       return new Date(b.date) - new Date(a.date);

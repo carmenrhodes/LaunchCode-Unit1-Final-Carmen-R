@@ -1,3 +1,5 @@
+// Component for cards displaying spot prices on Home dashboard
+
 import { useEffect, useState } from "react";
 import { fetchSpotPrices } from "../utils/fetchSpotPrices";
 import "./SpotPrices.css";

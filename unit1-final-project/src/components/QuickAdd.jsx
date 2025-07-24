@@ -1,3 +1,5 @@
+// Component for quick add on Home dashboard
+
 import { useState } from "react";
 import "./QuickAdd.css";
 

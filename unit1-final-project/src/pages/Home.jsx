@@ -1,7 +1,8 @@
 import QuickAdd from "../components/QuickAdd";
 import "./Home.css";
 import SpotPrices from "../components/SpotPrices";
-/* import { calculateTotalValue, calculateTotalWeight } from "../utils/utils";*/
+/* Import for test functions 
+import { calculateTotalValue, calculateTotalWeight } from "../utils/utils";*/
 
 function Home({ stack, onAdd }) {
     const totalWeight = stack.reduce((sum, i) => sum + i.weight, 0);

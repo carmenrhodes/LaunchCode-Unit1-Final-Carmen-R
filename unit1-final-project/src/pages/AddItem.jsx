@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./AddItem.css";
 
+// Function to add a new item to the stack
 function AddItem({ onAdd }) {
   const [metal, setMetal] = useState("");
   const [weight, setWeight] = useState("");
@@ -9,6 +10,7 @@ function AddItem({ onAdd }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Validates input and adds item to stack
     if (!metal || !weight || !price || !date) {
       alert("Please fill in all fields.");
       return;

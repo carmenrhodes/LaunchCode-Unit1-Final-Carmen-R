@@ -1,5 +1,6 @@
 import { calculateTotalValue, calculateTotalWeight, convertSpotRates, isValidStackItem } from '../utils/utils';
 
+// Test that total weight is claculating properly
 describe('calculateTotalWeight', () => {
     it('returns the total weight of all items', () => {
         const stack = [{ weight: 2 }, { weight: 3.5 }, { weight: 4 }];
@@ -11,6 +12,7 @@ describe('calculateTotalWeight', () => {
     });
 });
 
+// Tests that total value is calculating properly
 describe('calculateTotalValue', () => {
     it('returns the total value of all items', () => {
         const stack = [{ price: 100 }, { price: 205.25 }, { price: 575.75 }];

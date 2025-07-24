@@ -18,7 +18,7 @@ function Header({ menuOpen, setMenuOpen }) {
             <h1>
                 TrackMyStack <FaLayerGroup />
             </h1>
-        </header> 
+        </header>
     );
 }
 

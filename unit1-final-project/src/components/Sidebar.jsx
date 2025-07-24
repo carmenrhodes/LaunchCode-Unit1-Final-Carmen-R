@@ -1,7 +1,10 @@
+// Component with links to pages / nav menu
 import { Link } from 'react-router-dom';
 import { FaHome, FaPlus, FaLayerGroup, FaDollarSign, FaSearchLocation, FaInfoCircle } from 'react-icons/fa';
 import './Sidebar.css';
 
+
+// Sidebar receives props from App to toggle visibility
 function Sidebar({ menuOpen, setMenuOpen }) {
     return (
         <nav className={`nav-menu ${menuOpen ? 'open' : ''}`}>

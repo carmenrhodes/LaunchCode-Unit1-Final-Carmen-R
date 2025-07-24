@@ -51,6 +51,7 @@
     margin-bottom: 0.25rem;
 }
 
+/* Formats styling on mobile device (iphone 14)*/
 @media (max-width: 768px) {
     .nav-menu {
         position: absolute;

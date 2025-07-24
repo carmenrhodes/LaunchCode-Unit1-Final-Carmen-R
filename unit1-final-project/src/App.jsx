@@ -14,8 +14,10 @@ import SpotTracker from './pages/SpotTracker';
 
 
 function App() {
+  // State for the stack inventory
   const [stack, setStack] = useState([]);
 
+  // Saves stack to local Storage whenever it changes
   useEffect(() => {
     localStorage.setItem("stack", JSON.stringify(stack));
   }, [stack]);
@@ -23,10 +25,12 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
 
+  // Function to add a new item to the stack
   const handleAddItem = (newItem) => {
     setStack([...stack, newItem]);
   };
 
+  // Function to delete an item from the stack
   const handleDeleteItem = (id) => {
     const updatedStack = stack.filter((item) => item.id !== id);
     setStack(updatedStack);
