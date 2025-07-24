@@ -1,12 +1,12 @@
 .stacker-tracker {
   max-width: 1000px;
+  width: 100%;
   margin: 3rem auto;
   padding: 1rem;
   background-color: #f5f5f5;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  min-width: 600px;
 }
 
 .stacker-tracker h2 {
@@ -41,9 +41,20 @@
   font-size: 1rem;
 }
 
+.stack-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
 .stack-table {
   width: 100%;
   border-collapse: collapse;
+}
+
+.stack-table input {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .stack-table th,
@@ -102,9 +113,7 @@
 @media (max-width: 768px) {
   .stacker-tracker {
     margin: 0;
-    padding: 0;
-    min-width: unset;
-    width: 100%;
+    padding: 1rem;
   }
 
   .recent-cards {

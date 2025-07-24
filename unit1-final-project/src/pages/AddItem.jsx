@@ -17,12 +17,12 @@ function AddItem({ onAdd }) {
     }
 
     const newItem = {
-      id: Date.now(),
-      metal,
-      weight,
-      price,
-      date,
-    };
+  id: Date.now(),
+  metal,
+  weight: parseFloat(weight),
+  price: parseFloat(price),
+  date,
+};
 
     onAdd(newItem);
 
