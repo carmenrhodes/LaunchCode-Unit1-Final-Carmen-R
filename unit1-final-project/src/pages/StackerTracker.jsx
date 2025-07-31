@@ -148,11 +148,11 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
                           <>
                             <button
                               className="edit-button"
-                              onClick={() => 
+                              onClick={() => {
                                 if (!editingItem.metal.trim()) {
-                                alert("Please enter a valid metal type.");
-                                return;
-                              }
+                                  alert("Please enter a valid metal type.");
+                                  return;
+                                }
                                 if (isNaN(editingItem.weight) || Number(editingItem.weight) <= 0) {
                                   alert("Please enter a valid weight greater than 0.");
                                   return;
@@ -169,8 +169,8 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
                                   ...editingItem,
                                   weight: parseFloat(editingItem.weight),
                                   price: parseFloat(editingItem.price),
-                                })
-                              }
+                                });
+                              }}
                             >
                               Edit
                             </button>
