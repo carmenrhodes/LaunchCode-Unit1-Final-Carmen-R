@@ -24,12 +24,11 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
     <div className="stacker-tracker">
       <h2>StackerTracker</h2>
 
-
-
       {stack.length === 0 ? (
         <p className="empty-message">Your stack is currently empty.</p>
       ) : (
         <>
+          {/* Recent Items */}
           <div className="recent-cards">
             {recentItems.map((item) => (
               <div className="card" key={item.id}>
@@ -41,7 +40,7 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
             ))}
           </div>
 
-
+          {/* Sorting Controls */}
           <div className="controls">
             <label>
               Sort by:{' '}
@@ -54,6 +53,7 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
             </label>
           </div>
 
+          {/* Stack Table */}
           <div className="stack-table-wrapper">
             <table className="stack-table">
               <thead>
@@ -72,6 +72,7 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
 
                   return (
                     <tr key={item.id}>
+                      {/* Metal */}
                       <td>
                         {isEditing ? (
                           <input
@@ -86,6 +87,7 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
                         )}
                       </td>
 
+                      {/* Weight */}
                       <td>
                         {isEditing ? (
                           <input
@@ -100,6 +102,7 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
                         )}
                       </td>
 
+                      {/* Price */}
                       <td>
                         {isEditing ? (
                           <input
@@ -114,6 +117,7 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
                         )}
                       </td>
 
+                      {/* Date */}
                       <td>
                         {isEditing ? (
                           <input
@@ -128,26 +132,12 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
                         )}
                       </td>
 
+                      {/* Actions */}
                       <td>
                         {isEditing ? (
                           <>
                             <button
                               className="update-button"
-                              onClick={() => onUpdate(editingItem)}
-                            >
-                              Save
-                            </button>
-                            <button
-                              className="cancel-button"
-                              onClick={() => setEditingItem(null)}
-                            >
-                              Cancel
-                            </button>
-                          </>
-                        ) : (
-                          <>
-                            <button
-                              className="edit-button"
                               onClick={() => {
                                 if (!editingItem.metal.trim()) {
                                   alert("Please enter a valid metal type.");
@@ -165,12 +155,28 @@ function StackerTracker({ stack, onDelete, onEdit, editingItem, setEditingItem, 
                                   alert("Please select a date.");
                                   return;
                                 }
+
                                 onUpdate({
                                   ...editingItem,
                                   weight: parseFloat(editingItem.weight),
                                   price: parseFloat(editingItem.price),
                                 });
                               }}
+                            >
+                              Save
+                            </button>
+                            <button
+                              className="cancel-button"
+                              onClick={() => setEditingItem(null)}
+                            >
+                              Cancel
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <button
+                              className="edit-button"
+                              onClick={() => onEdit(item)}
                             >
                               Edit
                             </button>
