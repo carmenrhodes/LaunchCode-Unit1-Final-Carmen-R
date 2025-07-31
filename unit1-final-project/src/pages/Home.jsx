@@ -5,8 +5,8 @@ import SpotPrices from "../components/SpotPrices";
 import { calculateTotalValue, calculateTotalWeight } from "../utils/utils";*/
 
 function Home({ stack, onAdd }) {
-    const totalWeight = stack.reduce((sum, i) => sum + i.weight, 0);
-    const totalValue = stack.reduce((sum, i) => sum + i.price, 0);
+    const totalWeight = stack.reduce((sum, i) => sum + Number(i.weight), 0);
+    const totalValue = stack.reduce((sum, i) => sum + Number(i.price), 0);
     /* For testing
     const totalWeight = calculateTotalWeight(stack);
     const totalValue = calculateTotalValue(stack);*/
